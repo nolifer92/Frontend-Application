@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Dashboard() {
+function Navbar() {
   return (
     <div className="dashboard">
-      <h1>Logo</h1>
       <ul>
         <li>
           <Link to="/">
@@ -21,4 +20,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Navbar;

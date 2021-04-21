@@ -1,20 +1,20 @@
 import axios from "axios";
 import { GET_PRODUCT_ERROR, GET_PRODUCT_REQUEST, GET_PRODUCT_SUCCESS } from "./productTypes";
 
-export const getProductRequest = () => {
+const getProductRequest = () => {
   return {
     type: GET_PRODUCT_REQUEST,
   };
 };
 
-export const getProductSuccess = (result) => {
+const getProductSuccess = (result) => {
   return {
     type: GET_PRODUCT_SUCCESS,
     payload: result,
   };
 };
 
-export const getProductError = (error) => {
+const getProductError = (error) => {
   return {
     type: GET_PRODUCT_ERROR,
     payload: error,
