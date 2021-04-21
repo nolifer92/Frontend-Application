@@ -23,7 +23,7 @@ First you have to setup the main dashboard with the main structure:
   - Main Page
   - Product
 
-This structure will be the same on all pages
+This structure will be the same on all pages.
 
 It's not required that the main page has any content. **But it should be the default page on the root path `/`.**
 
@@ -67,7 +67,7 @@ With the api call `/configuration/:appId/` you get the configuration for your `A
 
 ## API
 In the task you will need to fetch some data from an API. The API base url is `https://api-test.innoloft.com`.  
-Please use **exactly** these endpoints.
+Please use **exactly** these endpoints:
 - Product
   - GET `/product/6781/`
   - PUT `/product/6781/`
