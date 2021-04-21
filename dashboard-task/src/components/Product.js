@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { handleGetProduct } from "../redux/product/productActions";
 
 function Product() {
-  const [product, setProduct] = useState([]);
-
-  const getProduct = () => {
-    axios
-      .get("https://api-test.innoloft.com/product/6781/")
-      .then((res) => {
-        console.log(res.data);
-        setProduct(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
+  const product = useSelector((state) => state.product.productData);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getProduct();
-  }, []);
+    dispatch(handleGetProduct());
+  }, [dispatch]);
 
   return (
     <div className="product-page">
