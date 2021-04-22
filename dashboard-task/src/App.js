@@ -5,22 +5,27 @@ import history from "./history";
 import Home from "./components/Home";
 import Product from "./components/Product";
 import Header from "./components/Header";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { handleGetConfiguration } from "./redux/configuration/configurationActions";
 
 function App() {
   const dispatch = useDispatch();
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  const toggleNavbar = () => {
+    setShowNavbar(!showNavbar);
+  };
 
   useEffect(() => {
     dispatch(handleGetConfiguration());
   }, [dispatch]);
   return (
     <div className="App">
-      <Header />
+      <Header toggleNavbar={toggleNavbar} />
       <div className="app-body">
         <Router history={history}>
-          <Navbar />
+          <Navbar showNavbar={showNavbar} />
           <Switch>
             <Route path="/" exact render={() => <Home />} />
             <Route path="/product" render={() => <Product />} />

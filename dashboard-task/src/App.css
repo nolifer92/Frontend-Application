@@ -20,9 +20,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #272e71;
   align-items: center;
   justify-content: center;
+}
+.hamburger-menu {
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+  margin-left: 20px;
+  display: none;
 }
 
 .header img {
@@ -39,6 +45,7 @@
 .navbar {
   width: 20%;
   position: fixed;
+  left: 0;
   height: 100%;
   color: #fff;
   opacity: 1;
@@ -46,6 +53,7 @@
   z-index: 99;
   box-shadow: 5px 0px 8px #777777;
   background: #eaeaea;
+  transition: 0.3s;
 }
 .navbar ul {
   list-style: none;
@@ -58,9 +66,7 @@
   font-size: 30px;
   font-weight: 600;
   padding: 10px;
-  margin-bottom: 10px;
   transition: 0.3s;
-  color: #272e71;
 }
 .selected-page {
   background: #929292;
@@ -145,7 +151,7 @@
   border: none;
   outline: none;
   padding: 10px;
-  background: #272e71;
+
   color: white;
   font-weight: 600;
   border-radius: 10px;
@@ -196,6 +202,7 @@ h3 {
   justify-content: center;
   text-align: center;
   background: #eaeaea;
+  margin-bottom: 40px;
 }
 .user-info svg,
 .user-info img {
@@ -209,11 +216,46 @@ h3 {
 }
 
 .google-map {
-  margin-top: 50px;
   height: 300px;
   margin-bottom: 50px;
   box-shadow: 0 0 8px 1px #c1b8b8;
   padding: 5px;
   border-radius: 10px;
   border: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .hamburger-menu {
+    display: block;
+    margin-right: 20px;
+  }
+  .navbar {
+    width: fit-content;
+  }
+  .hidden {
+    transform: translateX(-500px);
+  }
+  .app-body {
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .product-page {
+    margin: 0;
+  }
+  .product {
+    display: block;
+  }
+  .product img {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+  }
+  .info-and-map {
+    margin-right: 0;
+  }
 }

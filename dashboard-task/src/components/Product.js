@@ -5,6 +5,7 @@ import UserInfo from "./UserInfo";
 
 function Product() {
   const product = useSelector((state) => state.product.productData);
+  const configuration = useSelector((store) => store.configuration.configurationData);
   const dispatch = useDispatch();
   const [displayedTab, setDisplayedTab] = useState("description");
 
@@ -60,7 +61,9 @@ function Product() {
                   <option>{product.trl.name}</option>
                 </select>
               </div>
-              <button onClick={() => dispatch(handlePutProduct(product))}>Save product</button>
+              <button onClick={() => dispatch(handlePutProduct(product))} style={{ background: configuration.mainColor }}>
+                Save product
+              </button>
             </div>
           ) : (
             ""

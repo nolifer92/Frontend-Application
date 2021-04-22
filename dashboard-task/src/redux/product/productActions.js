@@ -69,6 +69,7 @@ export const handlePutProduct = (product) => {
       .put("https://api-test.innoloft.com/product/6781/", product)
       .then((res) => {
         console.log(res.data);
+        alert("Product Saved!");
         putProductSuccess(res.data);
       })
       .catch((err) => {
