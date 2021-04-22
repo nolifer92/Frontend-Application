@@ -1,5 +1,12 @@
 import axios from "axios";
-import { GET_PRODUCT_ERROR, GET_PRODUCT_REQUEST, GET_PRODUCT_SUCCESS } from "./productTypes";
+import {
+  GET_PRODUCT_ERROR,
+  GET_PRODUCT_REQUEST,
+  GET_PRODUCT_SUCCESS,
+  PUT_PRODUCT_REQUEST,
+  PUT_PRODUCT_SUCCESS,
+  PUT_PRODUCT_ERROR,
+} from "./productTypes";
 
 const getProductRequest = () => {
   return {
@@ -31,6 +38,42 @@ export const handleGetProduct = () => {
       })
       .catch((err) => {
         dispatch(getProductError(err));
+      });
+  };
+};
+
+const putProductRequest = () => {
+  return {
+    type: PUT_PRODUCT_REQUEST,
+  };
+};
+
+const putProductSuccess = (result) => {
+  return {
+    type: PUT_PRODUCT_SUCCESS,
+    payload: result,
+  };
+};
+
+const putProductError = (error) => {
+  return {
+    type: PUT_PRODUCT_ERROR,
+    payload: error,
+  };
+};
+
+export const handlePutProduct = (product) => {
+  return (dispatch) => {
+    dispatch(putProductRequest());
+    axios
+      .put("https://api-test.innoloft.com/product/6781/", product)
+      .then((res) => {
+        console.log(res.data);
+        putProductSuccess(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        putProductError(err);
       });
   };
 };
