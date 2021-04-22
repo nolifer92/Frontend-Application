@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const [selectedPage, setSelectedPage] = useState("home");
+
+  const handleSelectedPage = (page) => {
+    setSelectedPage(page);
+  };
   return (
-    <div className="dashboard">
+    <div className="navbar">
       <ul>
-        <li>
-          <Link to="/">
-            <span>Home</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/product">
-            <span>Product</span>
-          </Link>
-        </li>
+        <Link to="/" className={`${selectedPage === "home" ? "selected-page" : ""}`} onClick={() => handleSelectedPage("home")}>
+          <span>Home</span>
+        </Link>
+        <Link
+          to="/product"
+          className={`${selectedPage === "product" ? "selected-page" : ""}`}
+          onClick={() => handleSelectedPage("product")}
+        >
+          <span>Product</span>
+        </Link>
       </ul>
     </div>
   );
